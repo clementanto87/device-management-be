@@ -28,16 +28,17 @@ const deleteDevice = (req, res) => {
 
 const updateDevice = (req, res) => {
   const { id } = req.params;
-  const { name, toppings, price } = req.body;
+  const { batteryStatus, deviceName, deviceType, ownerName } = req.body;
 
   const item = itemData.find((item) => item.id === id);
 
-  if (name) item.name = name;
-  if (toppings) item.toppings = toppings;
-  if (price) item.price = price;
+  if (batteryStatus) item.batteryStatus = batteryStatus;
+  if (deviceName) item.deviceName = deviceName;
+  if (deviceType) item.deviceType = deviceType;
+  if (ownerName) item.ownerName = ownerName;
 
   res.send(
-    `Item with id ${id} and name ${item.name} has been updated successfully`
+    `Item with id ${id} and name ${item.deviceName} has been updated successfully`
   );
 };
 
